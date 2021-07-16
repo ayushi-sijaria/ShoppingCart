@@ -1,12 +1,13 @@
 import React from 'react'
-import Products from '../../../data/data'
-import ProductItem from '../../../UI/ProductItem/ProductItem'
+import ProductItem from './ProductItem/ProductItem'
 
-const ProductList = () => {
+const ProductList = (props) => {     
      return (
           <div>
                <div className='ProductList'>
-                    {Products.map(p => <ProductItem product={p}/>)}
+                    {props.data.items.map(p => <ProductItem product={p} 
+                                                    add={props.add}
+                                                    key={p.name}/>)}
                </div>
           </div>
      )

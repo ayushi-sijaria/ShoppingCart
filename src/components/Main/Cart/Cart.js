@@ -1,11 +1,11 @@
 import React from 'react'
 import CartItems from './CartItems/CartItems'
-import Products from './Products/Products'
+import Products from './Total/Total'
 
-const Cart = () => {
+const Cart = (props) => {
      return (
           <div className='Cart'>
-               <CartItems/>
+               <CartItems cart={props.cart}/>
                <Products/>
           </div>
      )

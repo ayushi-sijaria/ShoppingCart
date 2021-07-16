@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import CartItem from './CartItem/CartItem'
+import CartItemHeader from './CartItemHeader/CartItemHeader'
 
-const CartItems = () => {
+const CartItems = (props) => {
+     console.log(props.cart)
      return (
-          <div className='CartItems'>
-               CartItems
-          </div>
-     )
-}
+          <Fragment>
+          <CartItemHeader/>
+          {props.cart.map(i => <CartItem item={i}
+                                   key={i.name}/>)}
+          </Fragment>)
 
+}
 export default CartItems
