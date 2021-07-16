@@ -1,0 +1,86 @@
+.Header
+{
+  text-transform:uppercase;
+  font-size: 200%;
+  height: 5%;
+  background-color: beige;
+  width: 100%;
+}
+
+.heading {
+  margin: 0.3rem;
+}
+
+.Main 
+{
+  display: flex;
+}
+
+.ProductList
+{
+  width: 85%;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  background-color: beige;
+}
+
+.Product 
+{
+  background-color: white;
+  height: 15rem;
+  margin: 0.5rem;
+  border: 1px solid #ccc;
+  flex: 0 1 20%;
+
+  img{
+    height: 25%;
+    width: 25%;
+  };
+}
+
+.Cart
+{
+  width: 30%;
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+.CartItems
+{
+  border: 1px solid #ccc;
+  height: 20%;
+  padding: 1rem;
+  margin: 0.1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.Products
+{
+  border: 1px solid #ccc;
+  height: 20%;
+  padding: 1rem;
+  margin: 0.1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+
+@media(max-width: 800px)
+{
+  .Product
+  {
+    flex: 0 1 40%;
+  }
+}
+
+@media(max-width: 500px)
+{
+  .Product
+  {
+    flex: 0 1 95%;
+  }
+}
