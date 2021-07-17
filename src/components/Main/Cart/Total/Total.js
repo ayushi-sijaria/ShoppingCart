@@ -3,7 +3,7 @@ import React from 'react'
 const Products = () => {
      return (
           <div className='Total'>
-               Total
+               Total:
           </div>
      )
 }

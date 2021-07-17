@@ -1,4 +1,5 @@
 import React from 'react'
+import Badge from '../../../../UI/Badge/Badge'
 
 const ProductItem = (props) => {
      var product = props.product
@@ -6,7 +7,8 @@ const ProductItem = (props) => {
      return (
           <div className='Product'>
                <p className='Title'>{product.name}</p>
-               <img src='product.image' alt='Not available'/>
+               <Badge discount={props.discount}/>
+               <img src='product.image' alt='Image not available'/>
                <div className='ProductFooter'>
                     <p><span className='DisplayPrice'>${product.price.display}</span>
                        <span className='ActualPrice'>${product.price.actual}</span></p>
