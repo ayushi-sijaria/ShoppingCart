@@ -3,11 +3,13 @@ import CartItems from './CartItems/CartItems'
 import Products from './Total/Total'
 
 const Cart = (props) => {
+     const cart = [...props.cart]
      console.log(props.cart)
      return (
           <div className='Cart'>
-               <CartItems cart={props.cart}/>
-               <Products/>
+               {!cart.length && <p className='Cart_Text'>Start adding item to cart !</p>}
+               {cart.length && <CartItems cart={cart} add={props.add} remove={props.remove}/>}
+               <Products />
           </div>
      )
 }

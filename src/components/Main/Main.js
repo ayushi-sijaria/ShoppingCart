@@ -6,16 +6,24 @@ import ProductList from './ProductList/ProductList'
 
 const Main = () => {
      const cart = useSelector(state => state.cart)
+     console.log(cart)
      const dispatch = useDispatch()
+     
      const addToCartHandler = (name) =>
      {
           const item = data.items.filter(p => p.name===name)  
           dispatch({type:'ADD', payload:{item}})
      }
+     const removeFromCartHandler = (name) =>
+     {
+          const item = data.items.filter(p => p.name===name)  
+          dispatch({type:'REMOVE', payload:{item}})
+     }
      return (
           <div className='Main'>
                <ProductList data={data} add={addToCartHandler}/>
-               <Cart cart={cart}/>
+               <Cart cart={cart} add={addToCartHandler} 
+                                        remove={removeFromCartHandler}/>
           </div>
      )
 }

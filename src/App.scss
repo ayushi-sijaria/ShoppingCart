@@ -1,15 +1,33 @@
+$beigeColour: rgb(247, 247, 214);
+@mixin borderProperty($marginProp) {  
+  border-radius: 5px;
+  margin: $marginProp;
+}
 .Header
 {
   text-transform:uppercase;
   font-size: 200%;
   height: 5%;
-  background-color: beige;
+  background-color: $beigeColour;
   width: 100%;
 }
 
 .heading {
   margin: 0.3rem;
-}
+    img {
+      float: right;
+      height: 50px;
+    };
+    button {
+      float: right;
+      font-weight: bold;
+      background: black;
+      color: blanchedalmond;
+      @include borderProperty(0.75rem);
+    }
+    
+    
+  }
 
 .Main 
 {
@@ -19,25 +37,35 @@
 
 .ProductList
 {
-  width: 95%;
-  margin: 0.5rem;
+  width: 100%;
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   border: 1px solid #ccc;
-  background-color: beige;
-  border-radius: 5px;
+  background-color: $beigeColour;
+  @include borderProperty(0.8rem);
 }
 
 .Product 
 {
-  border-radius: 5px;
+  @include borderProperty(0.5rem);
   background-color: white;
   height: 15rem;
-  margin: 0.5rem;
   border: 1px solid #ccc;
   flex: 0 1 22%;
+  
+
+  .Badge
+  {
+    height: 10%;
+    width: 22%;
+    background-color: green;
+    color: white;    
+    font-size: small;
+    text-align: center;
+    margin: 0;
+  }
 
   img{
     margin: 1rem;
@@ -46,7 +74,7 @@
   };
 
   .Title{
-    margin: 12%;
+    margin: 8%;
     font-style: italic;
     font-weight: bold;
     color: rgb(31, 82, 71);
@@ -79,32 +107,26 @@
 }
 
 button{
+  @include borderProperty(0);
   width: 50%;
   height: 15%;
-  background-color: white;
-  border-radius: 5px;
+  background-color: black;
   margin-left: 25%;
   margin-right: 25%;
   margin-top: 5%;
-  color: rgb(133, 161, 122);
+  color: $beigeColour;
   font-weight: bold;
-  border:1px solid rgb(133, 161, 122)
-}
+  border:1px solid rgb(133, 161, 122);
 }
 
-.Badge
-  {
-    height: 10%;
-    width: 18%;
-    background-color: green;
-    color: white;
-  }
+}
+
+
 
 .Cart
 {
   width: 30%;
-  border: 1px solid #ccc;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .CartItemHeader
@@ -122,16 +144,44 @@ button{
   margin: 0.1rem;
   margin-bottom: 4rem;
   margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
 .Total
 {
   border: 1px solid #ccc;
-  height: 20%;
+  height: auto;
   padding: 1rem;
   margin: 0.1rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  font-weight: bold;
+
+  div
+  {
+    font-weight: normal;
+
+    p {
+      font-size: small
+    }
+
+    .Display_Price
+    {
+      color: red;
+      font-weight: bold;
+    }
+    .Billing_Amount
+    {
+      font-weight: bold;
+      color: rgb(5, 51, 70);
+    }
+    .Discount
+    {
+      color: rgb(7, 105, 7);
+      font-weight: bold;
+    }
+  }
 }
 .Footer
 {
@@ -148,9 +198,11 @@ button{
 {
   display: inline-block;
   width: 55%;
+  margin-right: 0.5rem;
+
   
   button{
-    margin: 0.8rem;
+    margin: 0.4rem;
   }
 }
 @media only screen 
@@ -163,14 +215,24 @@ button{
   text-transform:uppercase;
   font-size: 600%;
   height: 150px;
-  background-color: beige;
+  background-color: $beigeColour;
   width: 100%;
   text-align: center;
   font-weight: bold;
+  
+  span {
+    display: none
+  };
 }
 
 .heading {
   margin: 0.3rem;
+  img {
+    display: none
+  };
+  button {
+    display: none;
+  }
   
 }    
 .Main 
@@ -179,12 +241,22 @@ button{
 }
 .Product 
 {
-  border-radius: 5px;
+  @include borderProperty(0.5rem);
   background-color: white;
   height: 75rem;
-  margin: 0.5rem;
   border: 1px solid #ccc;
   flex: 0 1 100%;
+
+  .Badge
+  {
+    height: 6%;
+    width: 22%;
+    background-color: green;
+    color: white;    
+    font-size: xxx-large;
+    text-align: center;
+    margin: 0;
+  }
 
   img{
     margin: 4rem;
@@ -193,7 +265,7 @@ button{
   };
 
   .Title{
-    margin: 12%;
+    margin: 8%;
     font-style: italic;
     font-weight: bold;
     color: rgb(31, 82, 71);
@@ -223,16 +295,16 @@ button{
 
   .ActualPrice
   {
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     font-size: 4rem;
     padding: 1rem;
   }
 }
 button{
+  @include borderProperty(13.5rem);
   width: 50%;
   height: 15%;
   background-color: white;
-  border-radius: 5px;
   margin-top: 5%;
   color: white;
   font-weight: bold;
@@ -245,8 +317,9 @@ button{
 .Cart
 {
   width: 100%;
-  border: 2px solid #ccc;
-  padding: 1rem;
+  
+  padding: 3rem;
+  margin: 0.2rem;
 }
 
 .CartItemHeader
@@ -265,9 +338,9 @@ button{
 .CartItems
 {
   margin: 0.1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   margin-top: 1rem;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 .Element
 {
@@ -275,24 +348,57 @@ button{
   width: 55%;
 
   button{
-    margin: 2rem;
+    @include borderProperty(2rem);
     font-size: 4rem;
     width: 6rem;
     border: 1px solid blue;
-    border-radius: 5px;
   }
 }
 .Total
 {
-  border: 3px solid #ccc;
+  border: 1px solid rgb(163, 141, 141);
+  height: auto;
   padding: 1rem;
   margin: 0.1rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
-  font-size: 4rem;
-}
-
-.Footer{
+  font-weight: bold;
   position: relative;
+    .Bill_Head
+    {
+      margin: 0.1rem;
+      margin-bottom: 4rem;
+      margin-top: 1rem;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .Display_Price
+    {
+      color: red;
+      font-weight: bold;
+      font-size: 2.5rem;
+    }
+    .Billing_Amount
+    {
+      font-weight: bold;
+      color: rgb(5, 51, 70);
+      font-size: 2.5rem;
+    }
+    .Discount
+    {
+      color: rgb(7, 105, 7);
+      font-weight: bold;
+      font-size: 2.5rem;
+    }
+}
+.Cart_Text
+{
+  font-size: 50px ;
+}
+.Footer{
+  height: 90px;
+  position: relative;
+  font-size: 62px ;
+  padding: 0.1rem;
 }
 }

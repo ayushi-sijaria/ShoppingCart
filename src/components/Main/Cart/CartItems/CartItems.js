@@ -4,12 +4,17 @@ import CartItemHeader from './CartItemHeader/CartItemHeader'
 
 const CartItems = (props) => {
      console.log(props.cart)
-     const finalCart = []
+     
+     
 
      return (
           <div className='CartItems'>
           <CartItemHeader/>
-          {props.cart.map(i => <CartItem key={i.item} item={i.item}/>)}
+          {props.cart.map(i => <CartItem key={i.item[0].name} 
+                                         item={i.item} 
+                                         quantity={i.quantity} 
+                                         add={props.add}
+                                         remove={props.remove}/>)}
           </div>)
 
 }

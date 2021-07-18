@@ -7,7 +7,7 @@ const ProductItem = (props) => {
      return (
           <div className='Product'>
                <p className='Title'>{product.name}</p>
-               <Badge discount={props.discount}/>
+               <Badge discount={product.discount}/>
                <img src='product.image' alt='Image not available'/>
                <div className='ProductFooter'>
                     <p><span className='DisplayPrice'>${product.price.display}</span>

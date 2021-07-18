@@ -2,8 +2,8 @@ import React from 'react'
 
 const Badge = (props) => {
      return (
-          <div classname='Badge'>
-               {props.discount}
+          <div className='Badge'>
+               <p>{props.discount}%off</p>
           </div>
      )
 }
