@@ -4,9 +4,6 @@ import CartItemHeader from './CartItemHeader/CartItemHeader'
 
 const CartItems = (props) => {
      console.log(props.cart)
-     
-     
-
      return (
           <div className='CartItems'>
           <CartItemHeader/>
