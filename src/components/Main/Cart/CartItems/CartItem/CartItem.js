@@ -1,7 +1,6 @@
 import React from 'react'
 
 const CartItem = (props) => {
-     console.log(props.item)
      return (
           <div>
                <div className='Element'>

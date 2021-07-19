@@ -4,7 +4,6 @@ import Products from './Total/Total'
 
 const Cart = (props) => {
      const cart = [...props.cart]
-     console.log(props.cart)
      return (
           <div className='Cart'>
                {!cart.length && <p className='Cart_Text'>Start adding item to cart !</p>}
@@ -13,5 +12,4 @@ const Cart = (props) => {
           </div>
      )
 }
-
 export default Cart

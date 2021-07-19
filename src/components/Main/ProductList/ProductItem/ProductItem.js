@@ -3,12 +3,11 @@ import Badge from '../../../../UI/Badge/Badge'
 
 const ProductItem = (props) => {
      var product = props.product
-     
      return (
           <div className='Product'>
                <p className='Title'>{product.name}</p>
                <Badge discount={product.discount}/>
-               <img src='product.image' alt='Image not available'/>
+               <img src='product.image' alt='Not available'/>
                <div className='ProductFooter'>
                     <p><span className='DisplayPrice'>${product.price.display}</span>
                        <span className='ActualPrice'>${product.price.actual}</span></p>

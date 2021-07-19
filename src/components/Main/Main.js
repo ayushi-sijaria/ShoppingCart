@@ -6,7 +6,6 @@ import ProductList from './ProductList/ProductList'
 
 const Main = () => {
      const cart = useSelector(state => state.cart)
-     console.log(cart)
      const dispatch = useDispatch()
      
      const addToCartHandler = (name) =>
@@ -23,7 +22,7 @@ const Main = () => {
           <div className='Main'>
                <ProductList data={data} add={addToCartHandler}/>
                <Cart cart={cart} add={addToCartHandler} 
-                                        remove={removeFromCartHandler}/>
+                                 remove={removeFromCartHandler}/>
           </div>
      )
 }

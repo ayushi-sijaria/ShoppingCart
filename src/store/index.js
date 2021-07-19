@@ -7,15 +7,9 @@ const reducer = (state={cart:[]}, action) =>
           case 'ADD': {
                const newProduct = action.payload
                const cart = [...state.cart]
-               console.log(cart)
-               console.log(newProduct)
-               console.log(newProduct.item[0].name)
                const existingItem = cart.find(p => p.item[0].name === newProduct.item[0].name)
-               console.log(existingItem)
                if(!existingItem)
                {
-                    console.log('Not Existing elememt')
-                    console.log(existingItem)
                     cart.push ({
                          ...newProduct,
                          quantity: 1,
@@ -25,7 +19,6 @@ const reducer = (state={cart:[]}, action) =>
                }
                else
                {
-                    console.log('Existing elememt')
                     const newQuantity = existingItem.quantity+1
                     existingItem.quantity = newQuantity
                     const newTotalValue=existingItem.totalValue + newProduct.item[0].price.actual
@@ -33,7 +26,6 @@ const reducer = (state={cart:[]}, action) =>
                     const newTotalSP=existingItem.totalSP + newProduct.item[0].price.display
                     existingItem.totalSP=newTotalSP
                }
-               console.log(cart)
                return {
                     cart
                }
@@ -42,19 +34,13 @@ const reducer = (state={cart:[]}, action) =>
           case 'REMOVE': {
                const newProduct = action.payload
                const cart = [...state.cart]
-               console.log(cart)
-               console.log(newProduct)
-               console.log(newProduct.item[0].name)
                const existingItem = cart.find(p => p.item[0].name === newProduct.item[0].name)
-               console.log(existingItem)
-               console.log('Existing elememt')
                const newQuantity = existingItem.quantity-1
                existingItem.quantity = newQuantity
                const newTotalValue=existingItem.totalValue - newProduct.item[0].price.actual
                existingItem.totalValue=newTotalValue
                const newTotalSP=existingItem.totalSP - newProduct.item[0].price.display
-               existingItem.totalSP=newTotalSP               
-               console.log(newQuantity)
+               existingItem.totalSP=newTotalSP
                if (newQuantity>=1)
                {
                     return {
@@ -62,15 +48,10 @@ const reducer = (state={cart:[]}, action) =>
                     }
                }
                else{
-                    console.log(cart)
                     const index = cart.indexOf(existingItem)
-                    console.log(index)
-                    const updatedCart = cart.splice(index, 1)
-                    console.log(updatedCart)
+                    cart.splice(index, 1)
                     return { cart }                    
                }
-               
-
           }
           default: return state
      }
